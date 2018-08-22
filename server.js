@@ -11,6 +11,7 @@ app.all('/*', function(req, res, next) {
 });
 
 var db; 
+var port = process.env.PORT || 3000;
 
 // Initialize connection once
 MongoClient.connect('mongodb://mikaelahensen:bkh13097@ds125031.mlab.com:25031/sandbox', function(err, database) {
@@ -18,8 +19,7 @@ MongoClient.connect('mongodb://mikaelahensen:bkh13097@ds125031.mlab.com:25031/sa
 
   db = database.db('sandbox');
 
-  app.listen(3000);
-  console.log('Listening on port 3000');
+  app.listen(port);
 });
 
 var client = contentful.createClient({
